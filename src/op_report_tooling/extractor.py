@@ -11,11 +11,13 @@ from data_models import (
     ProviderInfo, DiagnosisInfo, ProcessedDiagnosis # Added ProcessedDiagnosis
 )
 from patterns import RegexPatterns
+from config import CPT_DB_PATH, ICD10_DB_PATH
 # Import BOTH database paths and the modified connection function,
 # plus BOTH lookup functions
 from utils import (
-    create_connection, get_cpt_description, get_icd10_details,
-    CPT_DB_PATH, ICD10_DB_PATH # Import path constants
+    create_connection, get_cpt_description, get_icd10_details
+
+    #CPT_DB_PATH, ICD10_DB_PATH # Import path constants
 )
 
 

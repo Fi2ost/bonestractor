@@ -1,17 +1,17 @@
 # utils.py - Utility functions for the Medical Report Extractor
 
 import sqlite3
+import os
 import logging
 from typing import Optional, Dict, Any # Added Dict, Any
 from datetime import datetime
+from src import config
 
 logger = logging.getLogger(__name__) # Use module-specific logger
 
-# --- Database Configuration ---
-# Define paths for BOTH databases (assuming they are in the same directory as scripts)
-# User confirmed they would move the old DB.
-CPT_DB_PATH = 'MedicalCoding.db'
-ICD10_DB_PATH = 'icd10cm_database.db' # The database we created
+# Get the file paths from the configuration file.
+CPT_DB_PATH = config.CPT_DB_PATH
+ICD10_DB_PATH = config.ICD10_DB_PATH
 
 # --- Database Functions ---
 

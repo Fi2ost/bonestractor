@@ -1,0 +1,3 @@
+## Configuration
+
+The `config.py` file, located in the `src` directory, plays a crucial role in this project. It is used to set configuration variables for the project. The `config.py` file centralizes all of the paths and makes them easy to edit. By centralizing these paths in one place, we make the codebase more modular and less dependent on specific directory structures. This allows for easier migration and deployment of the project.

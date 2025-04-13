@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import sys # To check Python version if needed, and exit
+from src import config
 
 # Try to import lxml.etree
 try:
@@ -10,10 +11,6 @@ except ImportError:
     print("ERROR: lxml library not found.")
     print("Please install it using 'pip install lxml' before running this script.")
     sys.exit(1) # Exit if lxml is required and not found
-
-# --- Configuration ---
-# *** Corrected filename extension to .xml ***
-xml_file_path = 'icd10cm_tabular_2025.xml'
 # ---
 
 def extract_icd_data_to_dataframe(filename):
@@ -22,10 +19,8 @@ def extract_icd_data_to_dataframe(filename):
     descriptions, first letter, and 3-char category into a pandas DataFrame.
     """
     if not os.path.exists(filename):
-        print(f"ERROR: File not found at '{filename}'")
-        print("Please ensure the file exists in the same directory as the script,")
-        print("or update the 'xml_file_path' variable in the script.")
-        return None
+        print("ERROR: ICD-10-CM XML file not found.")
+        return None    
 
     print(f"Parsing XML file: {filename}...")
     data_rows = []
@@ -86,7 +81,7 @@ def extract_icd_data_to_dataframe(filename):
 
 # --- Main execution ---
 if __name__ == "__main__":
-    icd_dataframe = extract_icd_data_to_dataframe(xml_file_path)
+    icd_dataframe = extract_icd_data_to_dataframe(config.ICD10_XML_FILE)
 
     if icd_dataframe is not None:
         print("DataFrame created successfully. Launching PandasGUI...")
